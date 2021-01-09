@@ -13,6 +13,33 @@ const setCurrentDate = () => {
   headerMonthElement.innerText = currentMonthName;
 }
 
+const renderTasks = () => {
+  const tasksListElement = document.getElementById('tasksList');
+  let tasksTemplateList;
+
+  if (tasksList.length > 0) {
+    tasksTemplateList = tasksList.map((task) => {
+      const currentDate = new Date();
+      const getTaskDate = `${currentDate.toLocaleDateString('en-us', { hour: '2-digit' })} ${currentDate.toLocaleDateString('en-us', { minute: '2-digit' })}`;
+
+      return `
+        <div id="${task.id}" class="task main-side-padding ${task.completed && 'completed'}">
+          <div class="task-info">
+            <div class="task-status">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="task-name">${task.name}</div>
+          </div>
+          <div class="task-date">${getTaskDate}</div>
+        </div>
+      </div>
+    `
+    })
+  }
+
+  tasksListElement.innerHTML = tasksTemplateList.join('');
+}
+
 const toggleModal = () => {
   const modalElement = document.querySelector('.modal-overlay');
 
@@ -39,6 +66,9 @@ const addNewTask = () => {
   if (taskName.trim()) {
     tasksList.unshift(newTask);
     taskInputElement.value = '';
+
+    renderTasks();
+    toggleModal();
   }
 
   console.log(tasksList);
