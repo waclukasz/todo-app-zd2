@@ -20,7 +20,7 @@ const renderTasks = () => {
   if (tasksList.length > 0) {
     tasksTemplateList = tasksList.map((task) => {
       const currentDate = new Date();
-      const getTaskDate = `${currentDate.toLocaleDateString('en-us', { hour: '2-digit' })} ${currentDate.toLocaleDateString('en-us', { minute: '2-digit' })}`;
+      const taskDate = `${currentDate.toLocaleDateString('en-us', { hour: '2-digit' })} ${currentDate.toLocaleDateString('en-us', { minute: '2-digit' })}`;
 
       return `
         <div id="${task.id}" class="task main-side-padding ${task.completed && 'completed'}">
@@ -30,10 +30,10 @@ const renderTasks = () => {
             </div>
             <div class="task-name">${task.name}</div>
           </div>
-          <div class="task-date">${getTaskDate}</div>
+          <div class="task-date">${taskDate}</div>
         </div>
       </div>
-    `
+      `
     })
   }
 
@@ -91,3 +91,7 @@ const addListnerToCloseBtn = () => {
 setCurrentDate();
 addListnerToAddBtn();
 addListnerToCloseBtn();
+
+// loclalStorage.setItem('tasksList', [])
+// document.createElement()
+// document.appendChild()
