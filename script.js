@@ -11,13 +11,30 @@ const setCurrentDate = () => {
   headerMonthElement.innerText = currentMonthName;
 }
 
+const toggleModal = () => {
+  const modalElement = document.querySelector('.modal-overlay');
+
+  modalElement.classList.toggle('hidden');
+
+  // if (modalElement.classList.includes('hidden')) {
+  //   modalElement.classList.remove('hidden')
+  // } else {
+  //   modalElement.classList.add('hidden')
+  // }
+}
+
 const addListnerToAddBtn = () => {
   const addTaskBtnElement = document.getElementById('addTaskBtn');
 
-  addTaskBtnElement.addEventListener('click', () => {
-    console.log('modal active');
-  })
+  addTaskBtnElement.addEventListener('click', toggleModal)
 }
+
+const addListnerToCloseBtn = () => {
+  const closeModalBtnElement = document.getElementById('closeModalBtn');
+  closeModalBtnElement.addEventListener('click', toggleModal)
+}
+
 
 setCurrentDate();
 addListnerToAddBtn();
+addListnerToCloseBtn();

@@ -88,6 +88,9 @@
   border-radius: 10px;
   padding: 30px 20px;
   background-color: #ffffff;
+  animation-name: fadeIn;
+  animation-duration: 250ms;
+  animation-fill-mode: forwards;
 }
 
 .modal-header {
@@ -139,4 +142,20 @@
   right: 16px;
   font-size: 18px;
   color: grey;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.3;
+    transform: translateY(16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
