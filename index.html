@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="todo-app">
+        <div class="app-header main-side-padding">
+          <div class="header-date">
+            <p id="headerDate" class="header-date-base"></p>
+            <p id="headerMonth" class="header-date-month"></p>
+          </div>
+          <div class="header-task-counter">
+            <p>12 tasks</p>
+          </div>
+
+          <button id="addTaskBtn" class="add-task-btn">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-overlay">
+        <div class="modal-container">
+          <button class="close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+          <h2 class="modal-header">Add Your next task!</h2>
+          <div class="task-input">
+            <label for="taskInput">Task name:</label>
+            <input id="taskInput" type="text" placeholder="Add your task" />
+          </div>
+          <button class="new-task-btn">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
