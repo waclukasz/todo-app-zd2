@@ -1,3 +1,5 @@
+const tasksList = [];
+
 const setCurrentDate = () => {
   const headerDateElement = document.getElementById('headerDate');
   const headerMonthElement = document.getElementById('headerMonth');
@@ -23,10 +25,31 @@ const toggleModal = () => {
   // }
 }
 
+const addNewTask = () => {
+  const taskInputElement = document.getElementById('taskInput');
+  const taskName = taskInputElement.value;
+
+  const newTask = {
+    name: taskName,
+    completed: false,
+    timestamp: Date.now(),
+    id: Math.random()
+  }
+
+  if (taskName.trim()) {
+    tasksList.unshift(newTask);
+    taskInputElement.value = '';
+  }
+
+  console.log(tasksList);
+}
+
 const addListnerToAddBtn = () => {
   const addTaskBtnElement = document.getElementById('addTaskBtn');
+  const newTaskBtnElement = document.getElementById('newTaskBtn');
 
-  addTaskBtnElement.addEventListener('click', toggleModal)
+  addTaskBtnElement.addEventListener('click', toggleModal);
+  newTaskBtnElement.addEventListener('click', addNewTask);
 }
 
 const addListnerToCloseBtn = () => {
